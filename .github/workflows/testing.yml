@@ -28,4 +28,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/  # Run the tests located in the tests directory
+          pytest tests/  
