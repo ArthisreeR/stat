@@ -1,5 +1,5 @@
 name: Python Testing
-
+ 
 on:
   push:
     branches:
@@ -7,27 +7,29 @@ on:
   pull_request:
     branches:
       - master
-
+ 
 jobs:
   test:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+ 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
-
+      uses: actions/checkout@v3  # Checkout the repository code
+ 
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.x'
-
+        python-version: '3.x'  # Set the Python version
+ 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install --upgrade setuptools[distutils]
-
-        pip install -r requirements.txt
-
+        python -m pip install --upgrade setuptools[distutils]  # Upgrade setuptools
+ 
+        pip install -r requirements.txt  # Install dependencies from requirements.txt
+ 
     - name: Run tests
       run: |
-        python -m unittest discover -s tests
+        # Set the PYTHONPATH to include the app directory and run tests
+        PYTHONPATH=./app python -m unittest discover -s tests
+
