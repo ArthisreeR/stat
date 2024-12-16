@@ -2,21 +2,23 @@ import json
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app
+ 
 @pytest.fixture
 def input_data():
-    # Sample input data to test the stat function
-    return {
-        "data": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]  # Example dataset
-    }
+    # Load the input data from the JSON file
+    with open('tests/input_data.json') as f:
+        return json.load(f)  # Return the JSON data from the file
+ 
 @pytest.fixture
 def client():
     with TestClient(app) as client:
         yield client
+ 
 def test_movement_api(client, input_data):
-    # Send a POST request to /stats/ with the input data
+    # Send a POST request to /stats/ with the input data read from the file
     response = client.post(
         '/stats/',  # Assuming your FastAPI endpoint is '/stats/'
-        json={'input_data': input_data}
+        json=input_data  # Send the data directly from the file as JSON
     )
     # Check if the status code is 200 (OK)
     assert response.status_code == 200
@@ -38,11 +40,12 @@ def test_movement_api(client, input_data):
     assert result["stdlimits"]["1_std_limits"] == [57.50433862037556, 114.01566137962445]
     assert result["stdlimits"]["2_std_limits"] == [29.248677240751128, 142.27132275924887]
     assert result["stdlimits"]["3_std_limits"] == [0.9930158611266933, 170.52698413887333]
+ 
 def test_invalid_data(client):
     # Send a POST request with invalid input (e.g., non-numeric data)
     response = client.post(
         '/stats/',
-        json={'input_data': {"data": ["a", "b", "c"]}}  # Invalid data
+        json={"data": ["a", "b", "c"]}  # Invalid data
     )
     # Check if the status code is 422 Unprocessable Entity (for invalid input)
     assert response.status_code == 422
