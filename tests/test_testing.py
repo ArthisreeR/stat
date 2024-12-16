@@ -7,7 +7,7 @@ from app.main import app
 def input_data():
     # Load the input data from the JSON file
     with open('tests/input_data.json') as f:
-        return json.load(f)  # Return the JSON data from the file
+        return json.load(f)  
  
 @pytest.fixture
 def client():
@@ -17,8 +17,8 @@ def client():
 def test_movement_api(client, input_data):
     # Send a POST request to /stats/ with the input data read from the file
     response = client.post(
-        '/stats/',  # Assuming your FastAPI endpoint is '/stats/'
-        json=input_data  # Send the data directly from the file as JSON
+        '/stats/', 
+        json=input_data  
     )
     # Check if the status code is 200 (OK)
     assert response.status_code == 200
