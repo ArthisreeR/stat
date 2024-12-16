@@ -1,0 +1,10 @@
+setuptools
+fastapi==0.95.2
+pytest==8.3.4
+uvicorn==0.22.0
+pandas
+numpy
+httpx
+simplejson==3.18.3
+python-multipart
+requests
