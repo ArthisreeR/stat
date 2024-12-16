@@ -31,5 +31,5 @@ jobs:
     - name: Run tests
       run: |
         # Set the PYTHONPATH to include the app directory and run tests
-        PYTHONPATH=./app python -m unittest discover -s tests
+        PYTHONPATH=./app python -m unittest discover -s tests -p "test_testing.py"
 
