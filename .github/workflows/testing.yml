@@ -25,8 +25,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install fastapi[all] pytest  # Install FastAPI and pytest
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)/app" >> $GITHUB_ENV
 
       - name: Run tests
         run: |
-          export PYTHONPATH=$(pwd)/app
           pytest tests/test_testing.py
