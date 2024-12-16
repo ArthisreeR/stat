@@ -28,5 +28,5 @@ jobs:
 
       - name: Run tests
         run: |
-          set PYTHONPATH=%cd%
+          set PYTHONPATH=%cd%\app     
           pytest tests/test_testing.py
