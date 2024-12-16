@@ -10,26 +10,24 @@ on:
  
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
  
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Checkout the repository code
+      uses: actions/checkout@v3
  
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.x'  # Set the Python version
+        python-version: '3.x'  # Use the latest version of Python 3
  
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install --upgrade setuptools[distutils]  # Upgrade setuptools
- 
         pip install -r requirements.txt  # Install dependencies from requirements.txt
  
     - name: Run tests
       run: |
         # Set the PYTHONPATH to include the app directory and run tests
-        PYTHONPATH=./app python -m unittest discover -s tests -p "test_testing.py"
-
+        export PYTHONPATH=$(pwd)/app
+        pytest tests/test_main.py  # Run tests in the test_main.py file
