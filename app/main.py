@@ -9,8 +9,7 @@ import os
 import traceback
 import ast
 import re
-import statparam
-from app.statparam import stat
+from statparam import stat
  
 app = FastAPI(debug=True)
 @app.post("/stats/")
