@@ -30,4 +30,5 @@ jobs:
       run: |
         # Set the PYTHONPATH to include the app directory and run tests
         export PYTHONPATH=$(pwd)/app
-        pytest tests/test_testing.py  # Run tests in the test_main.py file
+        PYTHONPATH=. pytest tests/test_testing.py
+
