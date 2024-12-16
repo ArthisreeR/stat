@@ -28,5 +28,5 @@ jobs:
 
       - name: Run tests
         run: |
-          set PYTHONPATH=%cd%\app     
+          export PYTHONPATH=$(pwd)/app
           pytest tests/test_testing.py
