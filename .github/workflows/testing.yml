@@ -28,4 +28,5 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/  
+          set PYTHONPATH=%cd%
+          pytest tests/test_testing.py
