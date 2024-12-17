@@ -32,6 +32,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/test_testing.py
+          pytest -m tests/test_testing.py
+
 
 
