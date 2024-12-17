@@ -33,5 +33,6 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest stat/tests/test_testing.py
+          pytest tests/test_testing.py
+
 
