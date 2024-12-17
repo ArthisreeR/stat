@@ -27,7 +27,7 @@ jobs:
           pip install fastapi[all] pytest  # Install FastAPI and pytest
           
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$(pwd)/app" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$(pwd)/tests" >> $GITHUB_ENV
 
       
 
