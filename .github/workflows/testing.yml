@@ -25,8 +25,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install fastapi[all] pytest  # Install FastAPI and pytest
+          
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$(pwd)/app" >> $GITHUB_ENV
+
+      - name: Print working directory
+        run: |
+          echo "Current Directory:"
+          pwd
 
       - name: Run tests
         run: |
