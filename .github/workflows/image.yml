@@ -28,9 +28,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/ArthisreeR/stat:latest .
+          docker build -t ghcr.io/arthisreer/stat:latest .
 
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/ArthisreeR/stat:latest
+          docker push ghcr.io/arthisreer/stat:latest
