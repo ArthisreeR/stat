@@ -28,9 +28,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:latest .
+          docker buildx build -t ghcr.io/ArthisreeR/ArthisreeR/stat:latest
 
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:latest
+          docker push -t ghcr.io/ArthisreeR/ArthisreeR/stat:latest
