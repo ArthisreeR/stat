@@ -26,12 +26,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install fastapi[all] pytest  # Install FastAPI and pytest
           
-      
-
-      
-
       - name: Run tests
         run: |
+          export PYTHONPATH=$PYTHONPATH:/path/to/repo/api
           pytest -m tests/test_testing.py
 
 
