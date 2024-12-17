@@ -33,4 +33,5 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/test_testing.py
+          pytest stat/tests
+
