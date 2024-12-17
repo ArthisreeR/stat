@@ -29,10 +29,7 @@ jobs:
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$(pwd)/app" >> $GITHUB_ENV
 
-      - name: Print working directory
-        run: |
-          echo "Current Directory:"
-          pwd
+      
 
       - name: Run tests
         run: |
