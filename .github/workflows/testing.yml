@@ -29,7 +29,7 @@ jobs:
       - name: Run tests
         run: |
           export PYTHONPATH=$PYTHONPATH:/home/runner/work/stat/stat/api
-          pytest -m tests/test_testing.py
+          pytest tests/test_testing.py
 
 
 
