@@ -33,4 +33,4 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push -t ghcr.io/ArthisreeR/stat:latest .
+          docker push ghcr.io/ArthisreeR/stat:latest
