@@ -14,7 +14,7 @@ def client():
         yield client
 def test_stat_api(client, input_data):
     # Send a POST request to /stats/ with the input data read from the file
-    response = response = client.post('/stats/', json=json.dumps(input_data))
+    response = client.post('/stats/', json=json.dumps(input_data))
     assert response.status_code == 200
     result = response.json()
     # Assertions based on the expected behavior
