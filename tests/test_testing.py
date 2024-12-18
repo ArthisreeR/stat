@@ -14,11 +14,8 @@ def client():
         yield client
 def test_stat_api(client, input_data):
     # Send a POST request to /stats/ with the input data read from the file
-    response = client.post(
-        '/stats/', 
-        json=input_data  
-    )
-    
+    response = response = client.post('/stats/', json=json.dumps(input_data))
+    assert response.status_code == 200
     result = response.json()
     # Assertions based on the expected behavior
     assert "meanval" in result
@@ -38,11 +35,8 @@ def test_stat_api(client, input_data):
     assert result["stdlimits"]["3_std_limits"] == [0.9930158611266933, 170.52698413887333]
 def test_wrongoutput_api(client, input_data):
     # Send a POST request to /stats/ with the input data read from the file
-    response = client.post(
-        '/stats/', 
-        json=input_data  
-    )
-    
+    response = client.post('/stats/', json=json.dumps(input_data))
+    assert response.status_code == 200
     result = response.json()
     # Assertions based on the expected behavior
     assert "meanval" in result
