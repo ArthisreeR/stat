@@ -5,4 +5,4 @@ COPY stat/requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 COPY . /app/
 EXPOSE 8008
-CMD ["uvicorn", "app.main.py", "--host", "0.0.0.0", "--port", "8008"]
+CMD ["uvicorn", "api.main.py", "--host", "0.0.0.0", "--port", "8008"]
