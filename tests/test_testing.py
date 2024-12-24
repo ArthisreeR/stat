@@ -60,7 +60,7 @@ def test_wrongoutput_api(client, input_data):
     assert result["stdlimits"]["1_std_limits"] == [57.50433862037557, 114.01566137962445]
     assert result["stdlimits"]["2_std_limits"] == [29.248677240751127, 142.27132275924887]
     assert result["stdlimits"]["3_std_limits"] == [0.9930158611266935, 170.52698413887333]
-def test_invalid_data(client):
+def test_invalid_data(client,wrong_data):
     # Send a POST request with invalid input (e.g., non-numeric data)
     response = client.post( '/stats/',json=json.dumps(wrong_data))  # Invalid data
     # Check if the status code is 422 Unprocessable Entity (for invalid input)
