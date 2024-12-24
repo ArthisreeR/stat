@@ -11,8 +11,8 @@ def input_data():
 
 @pytest.fixture
 def wrong_data():
-    with open('tests/invalidinput_data.json') as f
-        return json.loads(f)
+    with open('tests/invalidinput_data.json') as a:
+        return json.loads(a)
  
 @pytest.fixture
 def client():
