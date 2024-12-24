@@ -8,6 +8,12 @@ def input_data():
     # Load the input data from the JSON file
     with open('tests/input_data.json') as f:
         return json.load(f)  
+
+def wrong_data():
+
+    with open('tests/invalidinput_data.json') as a
+        return json.loads(a)
+ 
 @pytest.fixture
 def client():
     with TestClient(app) as client:
@@ -56,10 +62,7 @@ def test_wrongoutput_api(client, input_data):
     assert result["stdlimits"]["3_std_limits"] == [0.9930158611266935, 170.52698413887333]
 def test_invalid_data(client):
     # Send a POST request with invalid input (e.g., non-numeric data)
-    response = client.post(
-        '/stats/',
-        json={"data": ["a", "b", "c"]}  # Invalid data
-    )
+    response = client.post( '/stats/',json=json.dumps(wrong_data))  # Invalid data
     # Check if the status code is 422 Unprocessable Entity (for invalid input)
     assert response.status_code == 422
     assert "detail" in response.json()
