@@ -9,8 +9,8 @@ def input_data():
     with open('tests/input_data.json') as f:
         return json.load(f)  
 
+@pytest.fixture
 def wrong_data():
-
     with open('tests/invalidinput_data.json') as a
         return json.loads(a)
  
