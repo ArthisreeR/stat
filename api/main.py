@@ -11,7 +11,7 @@ import os
 import traceback
 import ast
 import re
-from statparam import stat
+from api.statparam import stat
  
 app = FastAPI(debug=True)
 
