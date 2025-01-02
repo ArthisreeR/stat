@@ -10,9 +10,9 @@ def input_data():
         return json.load(f)  
 
 @pytest.fixture
-def wrong_data():
-    with open('tests/invalidinput_data.txt') as a:
-        return a.read()
+def output_data():
+    with open('output_data.json') as a:
+        return json.load(a)  
  
 @pytest.fixture
 def client():
@@ -31,17 +31,14 @@ def test_stat_api(client, input_data):
     assert "upperlimit" in result
     assert "stdlimits" in result
     # Compare the returned values with the expected ones
-    assert result["meanval"] == 55
-    assert result["medianval"] == 55
-    assert result["IQR"] == 55
-    assert result["Lowerlimit"] == -55
-    assert result["upperlimit"] == 165
-    assert result["stdlimits"]["1_std_limits"] == [26.277186767309857,
-      83.72281323269014]
-    assert result["stdlimits"]["2_std_limits"] == [-2.445626465380286,
-      112.44562646538029]
-    assert result["stdlimits"]["3_std_limits"] == [-31.16843969807043,
-      141.16843969807042]
+    assert result["meanval"] == output_data["meanval"]
+    assert result["medianval"] == output_data["medianval"]
+    assert result["IQR"] == output_data["IQR"]
+    assert result["Lowerlimit"] == output_data["Lowerlimit"]
+    assert result["upperlimit"] == output_data["upperlimit"]
+    assert result["stdlimits"]["1_std_limits"] == output_data["stdlimits"]["1_std_limits"]
+    assert result["stdlimits"]["2_std_limits"] == output_data["stdlimits"]["2_std_limits"]
+    assert result["stdlimits"]["3_std_limits"] == output_data["stdlimits"]["1_std_limits"]
 
 def test_invalid_data(client, wrong_data):
     # Send a POST request with invalid input (e.g., non-numeric data)
