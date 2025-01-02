@@ -46,7 +46,7 @@ def test_stat_api(client, input_data,output_data):
     assert result["upperlimit"] == output_data["upperlimit"]
     assert result["stdlimits"]["1_std_limits"] == output_data["stdlimits"]["1_std_limits"]
     assert result["stdlimits"]["2_std_limits"] == output_data["stdlimits"]["2_std_limits"]
-    assert result["stdlimits"]["3_std_limits"] == output_data["stdlimits"]["1_std_limits"]
+    assert result["stdlimits"]["3_std_limits"] == output_data["stdlimits"]["3_std_limits"]
 
 def test_invalid_data(client, wrong_data):
     # Send a POST request with invalid input (e.g., non-numeric data)
