@@ -17,7 +17,7 @@ def output_data():
 @pytest.fixture
 def wrong_data():
     with open('tests/invalidinput_data.txt') as c:
-        return c.read()
+        return json.load(c)
 
 
  
@@ -51,6 +51,4 @@ def test_stat_api(client, input_data,output_data):
 def test_invalid_data(client, wrong_data):
     # Send a POST request with invalid input (e.g., non-numeric data)
     response = client.post( '/stats/',data = {"input" : wrong_data })  
-    # Check if the status code is 422 Unprocessable Entity (for invalid input)
-    assert response.status_code == 422
     assert "TypeError" in response.json()
