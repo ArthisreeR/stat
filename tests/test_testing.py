@@ -16,7 +16,7 @@ def output_data():
      
 @pytest.fixture
 def wrong_data():
-    with open('tests/invalidinput_data.txt') as c:
+    with open('tests/invalidinput_data.json') as c:
         return json.load(c)
 
 
@@ -51,4 +51,4 @@ def test_stat_api(client, input_data,output_data):
 def test_invalid_data(client, wrong_data):
     # Send a POST request with invalid input (e.g., non-numeric data)
     response = client.post( '/stats/',data = {"input" : wrong_data })  
-    assert "TypeError" in response.json()
+    assert "string" in response.json()
