@@ -16,9 +16,8 @@ def output_data():
      
 @pytest.fixture
 def wrong_data():
-    with open('tests/invalidinput_data.json') as a:
-    with open('tests/invalidinput_data.txt') as a:
-        return a.read()
+    with open('tests/invalidinput_data.txt') as c:
+        return c.read()
 
 
  
