@@ -50,6 +50,6 @@ def test_stat_api(client, input_data,output_data):
 
 def test_invalid_data(client, wrong_data):
     # Send a POST request with invalid input (e.g., non-numeric data)
-    response = client.post( '/stats/',data = {"input" : wrong_data })  
+    response = client.post( '/stats/',json = {"input" : wrong_data })  
     assert response.status_code == 500
     assert "detail" in response.json()
