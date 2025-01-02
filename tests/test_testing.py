@@ -11,7 +11,7 @@ def input_data():
 
 @pytest.fixture
 def output_data():
-    with open('output_data.json') as a:
+    with open('tests/output_data.json') as a:
         return json.load(a)  
      
 @pytest.fixture
