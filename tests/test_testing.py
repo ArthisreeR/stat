@@ -53,4 +53,4 @@ def test_invalid_data(client, wrong_data):
     response = client.post( '/stats/',data = {"input" : wrong_data })  
     # Check if the status code is 422 Unprocessable Entity (for invalid input)
     #assert response.status_code != 200
-    assert TypeError in response.json()
+    assert "TypeError: unsupported operand type(s) for +: 'int' and 'str'" in response.json()
