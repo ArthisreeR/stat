@@ -31,4 +31,4 @@ async def statfunction( input : str = Form(...)):
      return result
  
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8008)
+    uvicorn.run(app, host="127.0.0.1", port=9130)
